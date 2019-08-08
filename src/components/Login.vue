@@ -1,13 +1,15 @@
 <template>
   <div class="login-wrapper border border-light">
     <form class="form-signin" @submit.prevent="login">
-      <h2 class="form-signin-heading">Please sign in</h2>
-      <div class="alert alert-danger" v-if="error">{{ error }}</div>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input v-model="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-      <label for="inputPassword" class="sr-only">Password</label>
+      <h2 class="form-signin-heading">
+        <b class="font-header">East India Trading Co.</b>
+      </h2>
+      <label for="username" class="sr-only">Email address</label>
+      <input v-model="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+      <label for="inputPassword" class="sr-only" >Password</label>
       <input v-model="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <div class="alert alert-danger alert-font" v-if="error">{{ error }}</div>
+      <button class="btn btn-lg btn-primary btn-block font-button" type="submit">Log in</button>
     </form>
   </div>
 </template>
@@ -17,7 +19,7 @@ export default {
   name: 'Login',
   data () {
     return {
-      email: '',
+      username: '',
       password: '',
       error: false
     }
@@ -51,7 +53,7 @@ export default {
 </script>
 
 <style lang="css">
-body {
+.body {
   background:white;
 }
 
@@ -61,10 +63,23 @@ body {
   margin: 12% auto;
 }
 
+.font-header {
+  font-family: Impact;
+}
+
 .form-signin {
-  max-width: 330px;
+  max-width: 400px;
   padding: 10% 15px;
   margin: 0 auto;
+
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  text-align: center;
+
+  color: #22478E;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -91,7 +106,29 @@ body {
 }
 .form-signin input[type="password"] {
   margin-bottom: 10px;
+  margin-top: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.font-button{
+  font-family: Montserrat;
+  background-color: #22478E;
+  border-color:#22478E;
+  border: 0px solid transparent;
+}
+
+.password-field{
+  margin-top: 10px;
+}
+
+.alert-font{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-family: Arial;
+  text-transform: none;
 }
 </style>
