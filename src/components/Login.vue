@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     login () {
-      this.$http.post('http://localhost:53842/Home/Post', { user: this.email, password: this.password })
+      this.$http.post('http://localhost:53842/Home/Post', { user: this.username, password: this.password })
         .then(request => this.loginSuccessful(request))
         .catch(() => this.loginFailed())
     },
@@ -83,7 +83,7 @@ export default {
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 .form-signin .checkbox {
   font-weight: normal;
