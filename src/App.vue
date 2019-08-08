@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <router-view></router-view>
     </div>
-  </div>
+   </div>
 </template>
 
 <script>

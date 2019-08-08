@@ -24,7 +24,7 @@ export default {
   },
   updated () {
     if (localStorage.token) {
-      this.$router.replace(this.$route.query.redirect || '/search')
+      this.$router.replace(this.$route.query.redirect || '/authors')
     }
   },
   methods: {
@@ -40,7 +40,7 @@ export default {
       }
       this.error = false
       localStorage.token = req.data
-      this.$router.replace(this.$route.query.redirect || '/search')
+      this.$router.replace(this.$route.query.redirect || '/authors')
     },
     loginFailed () {
       this.error = 'Login failed!'
@@ -52,7 +52,7 @@ export default {
 
 <style lang="css">
 body {
-  background: #605B56;
+  background:white;
 }
 
 .login-wrapper {

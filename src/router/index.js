@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Hello from '@/components/Hello'
 import SearchPage from '@/components/SearchPage'
+import PriceListpage from '@/components/PriceListpage'
+
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +23,11 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: SearchPage
+    },
+    {
+      path: '/pricelist',
+      name: 'Pricelist',
+      component: PriceListpage
     }
   ]
 })

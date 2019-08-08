@@ -1,53 +1,84 @@
 
 <template>
-  <div>
-    <form @submit="formSubmit" action="">
-      <div class="row" style="background-color:lavender;">
-        <div class="col-sm-4 margin">
-          <label>Depature</label>
-          <v-select placeholder="Depature" v-model="Depature" :options="options" @search="onSearch">
-          </v-select>
-        </div>
-        <div class="col-sm-4 margin">
-          <label>Arrival</label>
-          <v-select placeholder="Arrival" v-model="Arrival" :filterable="false" :options="options" @search="onSearch">
-          </v-select>
-        </div>
-        <div class="col-sm-4 margin">
-          <label>Package Content</label>
-          <v-select placeholder="Package Content" v-model="PackageContent" :filterable="false" :options="options" @search="onSearch">
-          </v-select>
-        </div>
-      </div>
+    <layout-default :showNav="showNav">
+        <div>
+            <div class="margin">
+            <form @submit="formSubmit"  >
+                <div class="row" >
+                    <div class="col-sm-4 ">
+                        <label>Depature</label>
+                        <v-select  v-model="Depature" :options="options" @search="onSearch">
+                        </v-select>
+                    </div>
+                    <div class="col-sm-4 ">
+                        <label>Arrival</label>
+                        <v-select  v-model="Arrival" :filterable="false" :options="options" @search="onSearch">
+                        </v-select>
+                    </div>
+                    <div class="col-sm-4 ">
+                        <label>Package Content</label>
+                        <v-select  v-model="PackageContent" :filterable="false" :options="options" @search="onSearch">
+                        </v-select>
+                    </div>
+                </div>
 
-      <div class="row" style="background-color:lavender;">
-        <div class="col-sm-4 margin">
-          <label>Weight</label>
-          <v-select placeholder="Weight" v-model="Weight" :filterable="false" :options="options" @search="onSearch">
-          </v-select>
-        </div>
-        <div class="col-sm-4 margin">
-          <label>Shipping Date</label>
-          <v-select placeholder="Shipping Date" v-model="ShippingDate" :filterable="false" :options="options" @search="onSearch">
-          </v-select>
-        </div>
-        <div class="col-sm-4 margin">
-          <p class="pmargin">
-              <button class="btn btn-success">Submit</button>
-          </p>
-        </div>
-      </div>
-    </form>
-    
+                <div class="row" >
+                    <div class="col-sm-4 ">
+                        <label class="lweight">Weight</label><br>
+                        <input type="text" v-model="Weight">
+                    </div>
+                    <div class="col-sm-4 ">
+                        <label>Shipping Date</label><br>
+                        <input type="date" name="bday">
+                    </div>
+                    <div class="col-sm-4 ">
+                        <p class="pmargin">
+                            <button class="btn btn-success bleft">Search</button>
+                        </p>
+                    </div>
+                </div>
+                </form>
+            </div>
 
-  </div>
+            <div class="table">
+                <h1>Cheapest</h1>
+                <table>
+                    <tr>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Shipping Service</th>
+                        <th>Price(kr.)</th>
+                        <th>Number of hours</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="table">
+                <h1>Fastest</h1>
+                <table>
+                    <tr>
+                        <th>Departure</th>
+                        <th>Arrival</th>
+                        <th>Shipping Service</th>
+                        <th>Price(kr.)</th>
+                        <th>Number of hours</th>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+	</layout-default>
+  
 </template>
 
 <script>
 import _ from 'lodash'
-// import 'vue-select/dist/vue-select.css';
-
+import 'vue-select/dist/vue-select.css'
+import LayoutDefault from '../components/LayoutDefault.vue'
 export default {
+  components: {
+    LayoutDefault
+  },
   data () {
     return {
       options: [],
@@ -57,7 +88,8 @@ export default {
       Arrival: '',
       PackageContent: '',
       Weight: '',
-      ShippingDate: ''
+      ShippingDate: '',
+      showNav: false
     }
   },
   methods: {
@@ -103,12 +135,39 @@ export default {
 <style scoped>
 
 .margin {
-  margin: 0px;
+    margin: 60px;
+    margin-left: 170px;
+    margin-right: 260px;
 }
 .row1 {
   width: 500px;
 }
 .pmargin {
   margin-top: 29px;
+}
+label {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+.bleft{
+    margin-top: 1.5rem;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.table{
+    margin: 82px;
 }
 </style>
