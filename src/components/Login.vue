@@ -24,7 +24,7 @@ export default {
   },
   updated () {
     if (localStorage.token) {
-      this.$router.replace(this.$route.query.redirect || '/authors')
+      this.$router.replace(this.$route.query.redirect || '/search')
     }
   },
   methods: {
@@ -40,7 +40,7 @@ export default {
       }
       this.error = false
       localStorage.token = req.data
-      this.$router.replace(this.$route.query.redirect || '/authors')
+      this.$router.replace(this.$route.query.redirect || '/search')
     },
     loginFailed () {
       this.error = 'Login failed!'
